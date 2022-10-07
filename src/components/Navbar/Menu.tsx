@@ -15,7 +15,7 @@ export const Menu: React.FC<Props> = ({ isAuthorized }) => {
 		dispatch(logout());
 	};
 	return (
-		<div className="lg:hidden md:hidden inline-block order-3 ">
+		<div className="lg:hidden md:hidden inline-block order-3 transition delay-300 linear z-30">
 			{!isMenuOpen ? (
 				<button
 					title="Open Menu"
@@ -83,7 +83,7 @@ export const Menu: React.FC<Props> = ({ isAuthorized }) => {
 									<React.Fragment>
 										<NavLink
 											to="/login"
-											className="text-white bg-red-500 hover:bg-red-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 focus:outline-none "
+											className="text-white bg-purple-600 hover:bg-purple-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 focus:outline-none "
 										>
 											Login
 										</NavLink>

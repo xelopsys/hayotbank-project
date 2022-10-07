@@ -20,4 +20,9 @@ export const pages: Array<Page> = [
 		name: "News",
 		path: "/news",
 	},
+	{
+		id: 4,
+		name: "Exchange",
+		path: "/exchange-rate",
+	},
 ];

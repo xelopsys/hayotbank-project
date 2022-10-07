@@ -39,72 +39,98 @@ const Login: React.FC = () => {
 	}, [Authorized, navigate]);
 
 	return (
-		<div className="w-full h-[100vh] flex flex-col justify-center items-center">
-			<h1 className="text-4xl">Sign in</h1>
-			<form
-				onSubmit={handleSubmit}
-				className="w-[70vw] md:w-[30vw] lg:w-[30vw] xl:w-[20vw] 2xl:w-[20vw]"
-			>
-				<label
-					htmlFor="input-group-1"
-					className="block mb-2 text-sm font-medium text-gray-900 "
+		<div className="mx-auto w-full h-full flex justify-center items-center px-4 py-16 sm:px-6 lg:px-8">
+			<div className="mx-auto w-96 ">
+				<form
+					onSubmit={handleSubmit}
+					className="mt-6 mb-0 space-y-4 rounded-lg p-8 shadow-2xl"
 				>
-					Your Email
-				</label>
-				<div className="relative mb-6">
-					<div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-						<svg
-							aria-hidden="true"
-							className="w-5 h-5 text-gray-500 "
-							fill="currentColor"
-							viewBox="0 0 20 20"
-							xmlns="http://www.w3.org/2000/svg"
-						>
-							<path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
-							<path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
-						</svg>
-					</div>
-					<input
-						type="text"
-						id="input-group-1"
-						className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  "
-						placeholder="username"
-						ref={name}
-						required
-					/>
-				</div>
-				<label
-					htmlFor="website-admin"
-					className="block mb-2 text-sm font-medium text-gray-900"
-				>
-					Password
-				</label>
-				<div className="flex">
-					<input
-						type="password"
-						id="website-admin"
-						className="rounded-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5  "
-						placeholder="********"
-						ref={password}
-						required
-					/>
-				</div>
-				{error && <p className="my-3 text-red-400">{error}</p>}
+					<p className="text-lg font-medium">Sign in to your account</p>
 
-				<button
-					type="submit"
-					className=" mt-8   rounded-lg bg-blue-500 hover:bg-blue-400 border text-white block flex-1 min-w-0 w-full text-md p-2.5  "
-				>
-					Sign in
-				</button>
-				<div className="w-full h-auto flex flex-row justify-between items-center">
-					<Link to="/">
-						<p className="text-left text-sm w-full my-4 hover:text-blue-500">
-							Home page {"->"}
-						</p>
-					</Link>
-				</div>
-			</form>
+					<div>
+						<label htmlFor="username" className="text-sm font-medium">
+							Username
+						</label>
+
+						<div className="relative mt-1">
+							<input
+								type="text"
+								id="username"
+								className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
+								placeholder="Enter your name"
+								ref={name}
+							/>
+
+							<span className="absolute inset-y-0 right-4 inline-flex items-center">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									className="h-5 w-5 text-gray-400"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke="currentColor"
+								>
+									<path
+										strokeLinecap="round"
+										strokeLinejoin="round"
+										strokeWidth="2"
+										d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
+									/>
+								</svg>
+							</span>
+						</div>
+					</div>
+
+					<div>
+						<label htmlFor="password" className="text-sm font-medium">
+							Password
+						</label>
+
+						<div className="relative mt-1">
+							<input
+								type="password"
+								id="password"
+								className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
+								placeholder="Enter password"
+								ref={password}
+							/>
+
+							<span className="absolute inset-y-0 right-4 inline-flex items-center">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									className="h-5 w-5 text-gray-400"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke="currentColor"
+								>
+									<path
+										strokeLinecap="round"
+										strokeLinejoin="round"
+										strokeWidth="2"
+										d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+									/>
+									<path
+										strokeLinecap="round"
+										strokeLinejoin="round"
+										strokeWidth="2"
+										d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+									/>
+								</svg>
+							</span>
+						</div>
+					</div>
+					{error && <p className="my-3 text-red-400">{error}</p>}
+					<button
+						type="submit"
+						className="block w-full rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white"
+					>
+						Sign in
+					</button>
+
+					<p className="text-center text-sm text-gray-500">
+						<Link to="/">Back to Home</Link>
+					</p>
+				</form>
+			</div>
 		</div>
 	);
 };
