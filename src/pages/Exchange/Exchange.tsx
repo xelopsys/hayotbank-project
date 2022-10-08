@@ -7,7 +7,8 @@ const Exchange = () => {
 	const toRef = useRef<HTMLSelectElement>(null);
 	const [symbols, setSymbols] = useState({});
 	const [rate, setRate] = useState<number | undefined>();
-	const [loading, setLoading] = useState(true);
+	const [loading, setLoading] = useState<boolean>(true);
+	const [rateLoading, setRateLoading] = useState<boolean>(false);
 	useEffect(() => {
 		const fetchData = async () => {
 			await axios("https://api.apilayer.com/exchangerates_data/symbols", {
@@ -32,6 +33,7 @@ const Exchange = () => {
 		const amount = amountRef.current!.value;
 		const from = fromRef.current!.value;
 		const to = toRef.current!.value;
+		setRateLoading(true);
 		await axios(
 			`https://api.apilayer.com/exchangerates_data/convert?to=${to}&from=${from}&amount=${amount}`,
 			{
@@ -43,6 +45,7 @@ const Exchange = () => {
 		)
 			.then((res) => {
 				setRate(res.data.result);
+				setRateLoading(false);
 			})
 			.catch((err) => {
 				console.log(err);
@@ -101,13 +104,16 @@ const Exchange = () => {
 							</span>
 						) : null}
 					</p>
-
-					<button
-						type="submit"
-						className="w-[83%] border border-purple-600 py-2 px-3 bg-purple-600 text-white hover:bg-white hover:text-black rounded-md transition delay-50 ease-linear"
-					>
-						Submit
-					</button>
+					{rateLoading ? (
+						<p>Loading...</p>
+					) : (
+						<button
+							type="submit"
+							className="w-[83%] border border-purple-600 py-2 px-3 bg-purple-600 text-white hover:bg-white hover:text-black rounded-md transition delay-50 ease-linear"
+						>
+							Submit
+						</button>
+					)}
 				</form>
 			)}
 		</div>
