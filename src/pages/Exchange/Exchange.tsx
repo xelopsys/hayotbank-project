@@ -79,7 +79,13 @@ const Exchange = () => {
 							>
 								From
 							</label>
-							<select name="" id="from" ref={fromRef} className="w-24 py-2">
+							<select
+								name=""
+								id="from"
+								ref={fromRef}
+								className="w-24 py-2"
+								defaultValue="USD"
+							>
 								{Object.keys(symbols).map((symbol) => (
 									<option value={symbol}>{symbol}</option>
 								))}
@@ -89,7 +95,13 @@ const Exchange = () => {
 							<label htmlFor="to" className="text-purple-800 font-bold text-lg">
 								To
 							</label>
-							<select name="" id="to" ref={toRef} className="w-24 py-2">
+							<select
+								name=""
+								id="to"
+								ref={toRef}
+								className="w-24 py-2"
+								defaultValue="UZS"
+							>
 								{Object.keys(symbols).map((symbol) => (
 									<option value={symbol}>{symbol}</option>
 								))}
