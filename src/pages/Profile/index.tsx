@@ -34,7 +34,7 @@ const Profile: React.FC = () => {
 				<div className="grid grid-cols-1 gap-y-3 lg:grid-cols-2 lg:items-center lg:gap-x-16">
 					<div className="mx-auto max-w-lg text-center lg:mx-0 lg:text-left">
 						<h2 className="text-3xl font-bold sm:text-4xl">
-							If you are seeing thing page, you are{" "}
+							If you are seeing this page, you are{" "}
 							<span className="text-red-500"> logged in.</span>
 						</h2>
 
