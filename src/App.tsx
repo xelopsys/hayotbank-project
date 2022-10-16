@@ -10,10 +10,16 @@ import Profile from "./pages/Profile";
 import { Layout } from "./pages/Layout/Layout";
 import Calculator from "./pages/Exchange/Exchange";
 import Error from "./pages/Error/Error";
+import { useLocation } from "react-router-dom";
 function App() {
+	const location = useLocation();
 	const isAuthorized: boolean = useAppSelector(setIsAuthorized);
 	const RequireAuth = ({ children }: { children: ReactElement }) => {
-		return isAuthorized ? children : <Navigate to="/login" />;
+		return isAuthorized ? (
+			children
+		) : (
+			<Navigate to="/login" state={{ from: location }} replace />
+		);
 	};
 	return (
 		<div className="w-[100vw] h-[100vh]">
